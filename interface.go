@@ -7,12 +7,11 @@ type Phone interface{
 	Call()
 }
 
-//define Implemtation class 
+//define class which implement the interface 
 type Android struct{}
-
 type IPhone struct{}
 
-//class implemation its interface
+//class implememtation 
 func (anzhuo Android) Call(){
 	fmt.Printf("This is Android\n")
 }
@@ -21,6 +20,7 @@ func (ip IPhone) Call(){
 	fmt.Printf("This is IPhone\n")
 }
 
+// call 
 func main() {
 
 	var phone Phone
