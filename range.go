@@ -1,7 +1,9 @@
 package main
 
 import "fmt"
-
+/*
+Range的对象，是 集合
+*/
 func main() {
 	
 	numbers := []int{1,2,3,4,5}
