@@ -16,6 +16,14 @@ func sum(a []int, c chan int) {
   c <- total
 }
 
+func producer(n int, c chan int) {
+	for i := 0; i < n; i++ {
+		c <- i
+	}
+	//如果不close, 那么 main()中的 range()会一直等在那里。这里的chan可以无限制传递数据，而不仅仅是10个。
+	close(c)
+}
+
 func main() {
 	
 	a := []int{1,2,3,4,5,6,7}
@@ -41,5 +49,13 @@ func main() {
 	y := <- e
 	z := <- e
 	fmt.Println(y, z)
+	
+	//close chan
+	d := make(chan int, 10)
+	go producer(cap(d),d)
+
+	for l := range(d){
+	   fmt.Println(l)
+	}
 	
 }
