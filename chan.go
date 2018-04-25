@@ -54,6 +54,7 @@ func main() {
 	d := make(chan int, 10)
 	go producer(cap(d),d)
 
+	//不断的读取channel里面的数据，直到该channel被显式的关闭
 	for l := range(d){
 	   fmt.Println(l)
 	}
