@@ -30,4 +30,16 @@ func main() {
 
 	fmt.Println(x)
 	
+	
+	//buffer chan
+	//e := make(chan int, 1) - dead lock : c <- 2 is alwags waiting as y := <- e is not executed
+	e := make(chan int, 2)
+
+	e <- 1
+	e <- 2
+
+	y := <- e
+	z := <- e
+	fmt.Println(y, z)
+	
 }
